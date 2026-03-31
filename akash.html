@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Akash E K – Mathematics Educator Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Optional: Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- GLOBAL & PAGE SETUP ----- */
+    :root {
+      --bg: #f5f5f7;
+      --paper: #ffffff;
+      --accent: #3949ab;
+      --accent-soft: #e8eaf6;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-soft: #e5e7eb;
+      --tag-bg: #eef2ff;
+      --tag-text: #3730a3;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--text-main);
+    }
+    @page {
+      size: A4;
+      margin: 12mm 10mm;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+    }
+    .page {
+      max-width: 210mm;
+      width: 100%;
+      background: var(--paper);
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.32fr 0.68fr;
+      min-height: calc(297mm - 24mm); /* A4 height minus page margins */
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .page {
+        box-shadow: none;
+        border-radius: 0;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+    /* ----- LAYOUT ----- */
+    .sidebar {
+      background: linear-gradient(155deg, #1f2937, #111827);
+      color: #e5e7eb;
+      padding: 22px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .main {
+      padding: 22px 26px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    /* ----- PHOTO ----- */
+    .avatar-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(209, 213, 219, 0.7);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.55);
+      background: #111827;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* ----- SIDEBAR CONTENT ----- */
+    .name-block {
+      border-bottom: 1px solid rgba(156, 163, 175, 0.35);
+      padding-bottom: 14px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .name {
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .role {
+      margin-top: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+    .section-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+    .contact, .sidebar-section {
+      font-size: 11px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .contact-icon {
+      width: 12px;
+      height: 12px;
+      border-radius: 99px;
+      border: 1px solid rgba(156, 163, 175, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      flex-shrink: 0;
+    }
+    .contact a {
+      color: #e5e7eb;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 250, 251, 0.12);
+      padding: 2px 7px;
+      font-size: 10px;
+      margin: 2px 4px 0 0;
+      background: rgba(15, 23, 42, 0.8);
+      white-space: nowrap;
+    }
+    .pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #a5b4fc;
+      margin-right: 5px;
+      flex-shrink: 0;
+    }
+    .stat-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1 1 45%;
+      background: rgba(31, 41, 55, 0.9);
+      border-radius: 8px;
+      padding: 7px 8px;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+    }
+    .stat-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+    .stat-value {
+      font-size: 11px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+    .lang-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .lang-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 1px 7px;
+      font-size: 10px;
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+    /* ----- MAIN SECTIONS ----- */
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 4px;
+    }
+    .header-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .header-sub {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+    .summary {
+      font-size: 11px;
+      line-height: 1.45;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+    .summary strong {
+      font-weight: 600;
+    }
+    .tags {
+      margin-top: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 999px;
+      padding: 2px 7px;
+      border: 1px solid rgba(129, 140, 248, 0.4);
+    }
+    .section {
+      margin-top: 6px;
+    }
+    .section-heading {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-heading-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--accent-soft), transparent);
+    }
+    /* EXPERIENCE TIMELINE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 0.22fr 0.78fr;
+      gap: 10px;
+    }
+    .exp-meta {
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.3;
+      border-right: 1px solid var(--border-soft);
+      padding-right: 8px;
+    }
+    .exp-date {
+      font-weight: 500;
+      color: #4b5563;
+    }
+    .exp-location {
+      margin-top: 1px;
+    }
+    .exp-body {
+      font-size: 11px;
+    }
+    .exp-role {
+      font-weight: 600;
+      color: #111827;
+    }
+    .exp-org {
+      font-size: 10.5px;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .exp-points {
+      margin: 2px 0 0;
+      padding-left: 14px;
+    }
+    .exp-points li {
+      margin-bottom: 1px;
+      line-height: 1.35;
+    }
+    /* INLINE LISTS */
+    .inline-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 2px;
+      font-size: 11px;
+    }
+    .inline-pill {
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: #111827;
+      border: 1px solid rgba(129, 140, 248, 0.4);
+      white-space: nowrap;
+    }
+    .subtext {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .link-muted {
+      font-size: 10px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .link-muted:hover {
+      text-decoration: underline;
+    }
+    /* RESPONSIVE (for previewing on small screens) */
+    @media (max-width: 768px) {
+      body {
+        padding: 8px;
+      }
+      .page {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .sidebar > div {
+        min-width: 45%;
+      }
+      .exp-item {
+        grid-template-columns: 1fr;
+      }
+      .exp-meta {
+        border-right: none;
+        border-left: 2px solid var(--border-soft);
+        padding-left: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="avatar-wrapper">
+        <div class="avatar">
+          <!-- Make sure profile.jpeg is in the same folder as this HTML -->
+          <img src="profile.jpeg" alt="Akash E K" />
+        </div>
+      </div>
+      <div class="name-block">
+        <div class="name">Akash&nbsp;E&nbsp;K</div>
+        <div class="role">Mathematics Educator &amp; Live Class Specialist</div>
+      </div>
+      <div class="contact">
+        <div class="section-label">Contact</div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>Thrissur, Kerala, India</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">☎</div>
+          <div>+91&nbsp;70129&nbsp;79346</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">@</div>
+          <div><a href="mailto:akash324288@gmail.com">akash324288@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">in</div>
+          <div>
+            <a href="https://www.linkedin.com/in/akash-e-k-3001881aa" target="_blank" rel="noreferrer">
+              linkedin.com/in/akash-e-k-3001881aa
+            </a>
+          </div>
+        </div>
+        
+      </div>
+      <div class="sidebar-section">
+        <div class="section-label">Profile Snapshot</div>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-label">Experience</div>
+            <div class="stat-value">5+ Years</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Modes</div>
+            <div class="stat-value">Online &amp; Offline</div>
+          </div>
+        </div>
+        <div style="margin-top: 6px;">
+          <span class="pill">
+            <span class="pill-dot"></span> Live Teaching
+          </span>
+          <span class="pill">
+            <span class="pill-dot"></span> Teacher Training
+          </span>
+          <span class="pill">
+            <span class="pill-dot"></span> Academic Quality
+          </span>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="section-label">Education</div>
+        <div style="margin-bottom: 6px;">
+          <div style="font-size: 11px; font-weight: 600;">M.Sc Statistics</div>
+          <div style="font-size: 10px;">Calicut University · 2019</div>
+        </div>
+        <div>
+          <div style="font-size: 11px; font-weight: 600;">B.Sc Mathematics</div>
+          <div style="font-size: 10px;">Calicut University · 2016</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="section-label">Technical</div>
+        <div class="inline-list">
+          <span class="inline-pill">MS Excel</span>
+          <span class="inline-pill">MS Word</span>
+          <span class="inline-pill">PowerPoint</span>
+          <span class="inline-pill">Python (Basic)</span>
+          <span class="inline-pill">R Programming</span>
+          <span class="inline-pill">Zoom</span>
+          <span class="inline-pill">YouTube Live</span>
+          <span class="inline-pill">EdTech Platforms</span>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="section-label">Languages</div>
+        <div class="lang-list">
+          <span class="lang-chip">Malayalam · Fluent</span>
+          <span class="lang-chip">English · Fluent</span>
+          <span class="lang-chip">Hindi · Working</span>
+          <span class="lang-chip">Tamil · Basic</span>
+        </div>
+      </div>
+    </aside>
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <!-- SUMMARY -->
+      <section>
+        <div class="header-row">
+          <div class="header-title">Professional Summary</div>
+          <div class="header-sub">Instruction · Live Teaching · Mentorship</div>
+        </div>
+        <p class="summary">
+          Results-driven Mathematics Educator with <strong>5+ years of experience</strong> across classroom,
+          one-to-one, and large-scale online environments. Specialized in
+          <strong>live teaching, student engagement, and academic performance improvement</strong> with
+          experience delivering interactive sessions on platforms including
+          <strong>YouTube Live</strong>. Proven track record in mentoring educators, auditing academic quality,
+          and using data to support learner progress and retention.
+        </p>
+        <div class="tags">
+          <span class="tag">High School &amp; Higher Secondary Math</span>
+          <span class="tag">Digital Teaching</span>
+          <span class="tag">Teacher Training</span>
+          <span class="tag">Academic Leadership</span>
+        </div>
+      </section>
+      <!-- CORE SKILLS -->
+      <section class="section">
+        <div class="section-heading">
+          <span>Core Capabilities</span>
+          <span class="section-heading-line"></span>
+        </div>
+        <div class="inline-list">
+          <span class="inline-pill">Mathematics Instruction (8–12)</span>
+          <span class="inline-pill">Live Online Teaching (Zoom / YouTube)</span>
+          <span class="inline-pill">Student Engagement &amp; Retention</span>
+          <span class="inline-pill">Curriculum &amp; Lesson Planning</span>
+          <span class="inline-pill">Concept-Based Teaching</span>
+          <span class="inline-pill">Teacher Training &amp; Mentorship</span>
+          <span class="inline-pill">Academic Quality Auditing</span>
+          <span class="inline-pill">Performance Tracking</span>
+          <span class="inline-pill">Digital Content Creation</span>
+        </div>
+      </section>
+      <!-- EXPERIENCE -->
+      <section class="section">
+        <div class="section-heading">
+          <span>Professional Experience</span>
+          <span class="section-heading-line"></span>
+        </div>
+        <div class="timeline">
+          <!-- Moonpreneur -->
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-date">Nov 2024 – Present</div>
+              <div class="exp-location">Moonpreneur Inc · Remote</div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-role">Programme Guide – Advanced Mathematics Instructor</div>
+              <div class="exp-org">Moonpreneur Inc</div>
+              <ul class="exp-points">
+                <li>Deliver advanced mathematics sessions through structured, interactive online platforms.</li>
+                <li>Design lesson flows that strengthen conceptual understanding and analytical thinking.</li>
+                <li>Drive active learner participation using questions, polls, and guided problem solving.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Eduport -->
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-date">Jun 2024 – Sep 2024</div>
+              <div class="exp-location">Eduport · Kozhikode, Kerala</div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-role">Mathematics Faculty</div>
+              <div class="exp-org">Eduport</div>
+              <ul class="exp-points">
+                <li>Delivered mathematics instruction for high school and higher secondary learners.</li>
+                <li>Conducted both offline and online sessions to ensure exam readiness.</li>
+                <li>Used structured, simplified approaches to improve conceptual clarity and confidence.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- BYJU'S -->
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-date">Dec 2021 – Aug 2024</div>
+              <div class="exp-location">BYJU’S · Remote</div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-role">Senior Academic Specialist · Live Class Expert · Teacher Trainer</div>
+              <div class="exp-org">BYJU’S</div>
+              <ul class="exp-points">
+                <li>Conducted engaging live classes focused on strong conceptual foundations in mathematics.</li>
+                <li>Audited live and recorded sessions to uphold academic quality standards.</li>
+                <li>Trained and mentored new educators on pedagogy, digital tools, and learner engagement.</li>
+                <li>Led Parent–Teacher Meetings (PTMs) to review progress and set academic goals.</li>
+                <li>Contributed to recruitment and evaluation of academic talent.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Winner's Coaching Centre -->
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-date">May 2024 – Jul 2024</div>
+              <div class="exp-location">Winner’s Coaching Centre · Kerala</div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-role">Academic Tutor</div>
+              <div class="exp-org">Winner’s Coaching Centre</div>
+              <ul class="exp-points">
+                <li>Delivered hybrid (online + offline) mathematics sessions for high school students.</li>
+                <li>Focused on conceptual clarity and measurable performance improvement.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Tutoron -->
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-date">Dec 2019 – Nov 2021</div>
+              <div class="exp-location">Tutoron Online Classes</div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-role">Mathematics Tutor (Online)</div>
+              <div class="exp-org">Tutoron Online Classes</div>
+              <ul class="exp-points">
+                <li>Delivered curriculum-aligned mathematics sessions for CBSE and international boards.</li>
+                <li>Designed differentiated lesson plans for varying learning levels.</li>
+                <li>Used digital tools to create interactive virtual classrooms and track progress.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Private Tutor -->
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-date">May 2013 – Nov 2021</div>
+              <div class="exp-location">Self-Employed</div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-role">Private Tutor</div>
+              <div class="exp-org">Self-Employed</div>
+              <ul class="exp-points">
+                <li>Provided home tuition for students from Classes 8–12.</li>
+                <li>Built strong academic foundations and improved exam performance in mathematics.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- DIGITAL TEACHING -->
+      <section class="section">
+        <div class="section-heading">
+          <span>Digital Teaching &amp; Content</span>
+          <span class="section-heading-line"></span>
+        </div>
+        <p class="subtext">
+          Conducted <strong>YouTube Live</strong> mathematics classes reaching learners beyond traditional classrooms,
+          delivering interactive, accessible sessions that mirror structured coaching environments.
+        </p>
+        <p class="subtext">
+          Example public session:
+          <a class="link-muted" href="https://www.youtube.com/watch?v=Yddh8ChxIbU" target="_blank" rel="noreferrer">
+            youtube.com/watch?v=Yddh8ChxIbU
+          </a>
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
